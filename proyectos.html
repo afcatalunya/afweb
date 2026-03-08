@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyectos | Aluminios Franco — Obras y realizaciones destacadas</title>
+  <meta name="description" content="Proyectos realizados con sistemas de aluminio Aluminios Franco: fachadas, pérgolas, barandillas, muro cortina y más.">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding: 80px 0;
+    }
+    .projects-grid .project-card--featured {
+      grid-column: span 2;
+      grid-row: span 1;
+      aspect-ratio: 16/7;
+    }
+    .project-card--featured .project-card__overlay { padding: 32px; }
+    .project-card--featured h3 { font-size: 1.375rem; }
+    .filter-bar {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      padding: 32px 0 0;
+    }
+    .filter-btn {
+      padding: 8px 20px; border-radius: 100px;
+      border: 1.5px solid var(--c-gray-200);
+      font-size: .8rem; font-weight: 600; color: var(--c-gray-600);
+      transition: all var(--transition); background: var(--c-white);
+      cursor: pointer;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--c-green); color: var(--c-white); border-color: var(--c-green);
+    }
+    @media (max-width: 768px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .projects-grid .project-card--featured { grid-column: span 1; aspect-ratio: 4/3; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+<div id="cursor"></div>
+
+<!-- NAVEGACIÓN -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/LOGO-50-anos-AF-positivo.svg" alt="Aluminios Franco">
+    </a>
+    <ul class="nav__menu">
+      <li class="nav__item">
+        <a href="arquitectura.html" class="nav__link">Arquitectura <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav__dropdown nav__dropdown--wide">
+          <div class="nav__dropdown-group">
+            <div class="nav__dropdown-title">Sistemas</div>
+            <a href="arquitectura.html#abatibles" class="nav__dropdown-link">Sistemas Abatibles</a>
+            <a href="arquitectura.html#correderas" class="nav__dropdown-link">Sistemas Correderas</a>
+            <a href="arquitectura.html#proteccion-solar" class="nav__dropdown-link">Protección Solar</a>
+            <a href="arquitectura.html#barandillas" class="nav__dropdown-link">Barandillas</a>
+            <a href="arquitectura.html#muro-cortina" class="nav__dropdown-link">Muro Cortina</a>
+          </div>
+          <div class="nav__dropdown-group">
+            <div class="nav__dropdown-title">Chapas y más</div>
+            <a href="arquitectura.html#normalizados" class="nav__dropdown-link">Normalizados</a>
+            <a href="arquitectura.html#sistemas-adicionales" class="nav__dropdown-link">Sistemas Adicionales</a>
+            <a href="arquitectura.html#panel-composite" class="nav__dropdown-link">Panel Composite</a>
+            <a href="arquitectura.html#chapas-edificacion" class="nav__dropdown-link">Chapas Edificación</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav__item">
+        <a href="industrial.html" class="nav__link">Industrial <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav__dropdown">
+          <a href="industrial.html#laminados" class="nav__dropdown-link">Laminados – Chapas aluminio</a>
+          <a href="industrial.html#normalizados" class="nav__dropdown-link">Normalizados</a>
+          <a href="industrial.html#carroceria" class="nav__dropdown-link">Carrocería</a>
+          <a href="industrial.html#placa-solar" class="nav__dropdown-link">Sistema Placa Solar</a>
+          <a href="industrial.html#bobinas" class="nav__dropdown-link">Bobinas de aluminio</a>
+        </div>
+      </li>
+      <li class="nav__item"><a href="empresa.html" class="nav__link">Empresa</a></li>
+      <li class="nav__item"><a href="proyectos.html" class="nav__link active">Proyectos</a></li>
+      <li class="nav__item"><a href="noticias.html" class="nav__link">Noticias</a></li>
+      <li class="nav__item">
+        <a href="#" class="nav__link">Servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav__dropdown">
+          <a href="calidad.html" class="nav__dropdown-link">Calidad</a>
+          <a href="bim.html" class="nav__dropdown-link">BIM</a>
+          <a href="presupuestos.html" class="nav__dropdown-link">Programa de presupuestos</a>
+          <a href="oficina-tecnica.html" class="nav__dropdown-link">Oficina técnica</a>
+          <a href="red-comercial.html" class="nav__dropdown-link">Red Comercial</a>
+        </div>
+      </li>
+      <li class="nav__item"><a href="contacto.html" class="nav__cta nav__link">Contacto</a></li>
+      <li class="nav__item"><a href="https://afcatalunya.github.io/intranet/" class="nav__lock nav__link" title="Área privada">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      </a></li>
+    </ul>
+    <button class="nav__hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header__inner">
+    <span class="page-header__label">Portfolio</span>
+    <h1>Nuestros Proyectos</h1>
+    <p>Recopilamos los proyectos más destacados junto a nuestros clientes, con el objetivo de lograr las mejores prestaciones técnicas y estéticas.</p>
+    <div class="page-header__breadcrumb">
+      <a href="index.html">Inicio</a><span>/</span><span>Proyectos</span>
+    </div>
+  </div>
+</div>
+
+<!-- FILTROS -->
+<div class="container">
+  <div class="filter-bar">
+    <button class="filter-btn active">Todos</button>
+    <button class="filter-btn">Fachadas</button>
+    <button class="filter-btn">Pérgolas</button>
+    <button class="filter-btn">Barandillas</button>
+    <button class="filter-btn">Rehabilitación</button>
+    <button class="filter-btn">Industrial</button>
+  </div>
+</div>
+
+<!-- GALERÍA DE PROYECTOS -->
+<div class="container">
+  <div class="projects-grid stagger">
+
+    <!-- Proyecto destacado -->
+    <a href="https://aluminiosfranco.es/proyectos/fachada-del-nuevo-campus-lci-barcelona/" class="project-card project-card--featured" target="_blank">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/NEW-LCI-BCN-1.webp" alt="Campus LCI Barcelona" loading="lazy">
+      <div class="project-card__overlay">
+        <div class="project-card__tag">Fachada · Barcelona</div>
+        <h3>Fachada del nuevo campus LCI – Barcelona</h3>
+      </div>
+    </a>
+
+    <a href="https://aluminiosfranco.es/proyectos/rehabilitacion-carcel-vieja-murcia/" class="project-card" target="_blank">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/rehabilitacion-carcelvieja-murcia-6.webp" alt="Rehabilitación Cárcel Vieja Murcia" loading="lazy">
+      <div class="project-card__overlay">
+        <div class="project-card__tag">Rehabilitación · Murcia</div>
+        <h3>Rehabilitación «Cárcel Vieja» Murcia</h3>
+      </div>
+    </a>
+
+    <a href="https://aluminiosfranco.es/proyectos/pergola-bioclimatica-continental-hotel-dwo-valencia/" class="project-card" target="_blank">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/pergola-hotel-dwo-1-1.webp" alt="Pérgola Hotel DWO Valencia" loading="lazy">
+      <div class="project-card__overlay">
+        <div class="project-card__tag">Pérgola · Valencia</div>
+        <h3>Pérgola bioclimática Hotel DWO – Valencia</h3>
+      </div>
+    </a>
+
+    <a href="https://aluminiosfranco.es/proyectos/urbanizacion-antilla-mar-de-cristal/" class="project-card" target="_blank">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/antilla-mar-de-cristal-1-1.webp" alt="Urbanización Antilla Mar de Cristal" loading="lazy">
+      <div class="project-card__overlay">
+        <div class="project-card__tag">Barandillas · Murcia</div>
+        <h3>Urbanización Antilla – Mar de cristal</h3>
+      </div>
+    </a>
+
+    <a href="https://aluminiosfranco.es/proyectos/deploye-sunset-drive-benidorm/" class="project-card" target="_blank">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/1.webp" alt="Deploye Benidorm" loading="lazy">
+      <div class="project-card__overlay">
+        <div class="project-card__tag">Deployé · Benidorm</div>
+        <h3>Deploye – Sunset Drive Benidorm</h3>
+      </div>
+    </a>
+
+    <a href="https://aluminiosfranco.es/proyectos/edificio-benito-corbal-sede-administrativa-xunta-de-galicia/" class="project-card" target="_blank">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/celosias-de-aluminio-3.webp" alt="Xunta de Galicia" loading="lazy">
+      <div class="project-card__overlay">
+        <div class="project-card__tag">Muro cortina · Galicia</div>
+        <h3>Edificio Benito Corbal – Xunta de Galicia</h3>
+      </div>
+    </a>
+
+    <a href="https://aluminiosfranco.es/proyectos/plaza-waldo-calero-torrevieja/" class="project-card" target="_blank">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/railing-glass-producto-1.webp" alt="Plaza Waldo Calero Torrevieja" loading="lazy">
+      <div class="project-card__overlay">
+        <div class="project-card__tag">Barandillas · Torrevieja</div>
+        <h3>Plaza Waldo Calero – Torrevieja</h3>
+      </div>
+    </a>
+
+    <a href="https://aluminiosfranco.es/proyectos/colegio-maristas-sede-fuensanta-murcia/" class="project-card" target="_blank">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/NEW-LCI-BCN-1.webp" alt="Colegio Maristas Murcia" loading="lazy">
+      <div class="project-card__overlay">
+        <div class="project-card__tag">Fachada · Murcia</div>
+        <h3>Colegio Maristas Sede Fuensanta Murcia</h3>
+      </div>
+    </a>
+
+    <a href="https://aluminiosfranco.es/proyectos/fachada-lama-de-avion-corvus/" class="project-card" target="_blank">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/rehabilitacion-carcelvieja-murcia-6.webp" alt="Fachada Lama Corvus" loading="lazy">
+      <div class="project-card__overlay">
+        <div class="project-card__tag">Fachada lama</div>
+        <h3>Fachada Lama de avión – Corvus</h3>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<section class="section section--dark" style="text-align:center">
+  <div class="container">
+    <span class="section-label" style="color:var(--c-green-mid)">¿Tienes un proyecto?</span>
+    <h2 class="section-title section-title--white" style="max-width:600px;margin:0 auto 16px">Cuéntanos tu proyecto y encontramos la solución</h2>
+    <p class="section-subtitle section-subtitle--white" style="margin:0 auto 32px">Nuestro equipo técnico te asesora sin compromiso.</p>
+    <a href="contacto.html" class="btn btn--white">Contactar ahora →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="https://aluminiosfranco.es/wp-content/uploads/LOGO-50-anos-AF-positivo.svg" alt="Aluminios Franco">
+        <p>Fabricantes y distribuidores de aluminio desde 1975. Arquitectura, edificación e industria.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="calidad.html">Certificado de calidad</a></li>
+          <li><a href="bim.html">Gestión BIM</a></li>
+          <li><a href="presupuestos.html">Programa de Presupuestos</a></li>
+          <li><a href="oficina-tecnica.html">Oficina Técnica</a></li>
+          <li><a href="red-comercial.html">Red Comercial</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Murcia</h4>
+        <ul>
+          <li><a href="tel:+34968243704">968 24 37 04</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#31505771505d445c585f585e425743505f525e1f5442"><span class="__cf_email__" data-cfemail="2b4a4d6b4a475e4642454244584d594a454844054e58">[email&#160;protected]</span></a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Valencia · Tarragona</h4>
+        <ul>
+          <li><a href="tel:+34961212816">Valencia: 961 21 28 16</a></li>
+          <li><a href="tel:+34977525572">Tarragona: 977 52 55 72</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__eu">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/ES-Financiado-por-la-Uni¢n-Europea_WHITE-1.webp" alt="Financiado por la Unión Europea">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/Logo-PRTR-tres-lineas_BLANCO-1.webp" alt="Plan de Recuperación">
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 Aluminios Franco, S.A.</span>
+      <div class="footer__bottom-links">
+        <a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://aluminiosfranco.es/50-aniversario/" class="badge-50" title="50 Aniversario" target="_blank">
+  <img src="https://aluminiosfranco.es/wp-content/uploads/LOGO-50-anos-AF-positivo-1-1.webp" alt="50 años">
+</a>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
+<script>
+  // Filtros proyectos
+  document.querySelec

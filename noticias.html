@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noticias | Aluminios Franco — Blog y actualidad del aluminio</title>
+  <meta name="description" content="Últimas noticias, artículos técnicos y novedades sobre aluminio para arquitectura e industria. Blog Aluminios Franco.">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .news-layout { padding: 80px 0; }
+    .news-layout__grid { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; align-items: start; }
+    .news-main-grid { display: grid; gap: 32px; }
+    .news-card--horizontal { display: grid; grid-template-columns: 280px 1fr; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--c-gray-200); transition: all var(--transition); background: var(--c-white); }
+    .news-card--horizontal:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .news-card--horizontal .news-card__img { aspect-ratio: unset; height: 100%; min-height: 180px; }
+    .news-card--horizontal .news-card__img img { height: 100%; }
+    .news-card--horizontal .news-card__body { padding: 28px; display: flex; flex-direction: column; justify-content: center; }
+    .news-card--horizontal .news-card__body h3 { font-size: 1.125rem; }
+    /* Sidebar */
+    .news-sidebar { position: sticky; top: calc(var(--nav-h) + 24px); }
+    .sidebar-widget { background: var(--c-white); border: 1px solid var(--c-gray-200); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+    .sidebar-widget h4 { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--c-green); margin-bottom: 16px; }
+    .sidebar-mini-card { display: grid; grid-template-columns: 72px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--c-gray-100); }
+    .sidebar-mini-card:last-child { border: none; padding-bottom: 0; }
+    .sidebar-mini-card img { width: 72px; height: 52px; object-fit: cover; border-radius: var(--radius-sm); }
+    .sidebar-mini-card h5 { font-size: .8rem; font-weight: 600; color: var(--c-green-deep); line-height: 1.4; margin-bottom: 4px; }
+    .sidebar-mini-card span { font-size: .7rem; color: var(--c-gray-400); }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { padding: 5px 12px; border-radius: 100px; background: var(--c-green-light); color: var(--c-green-dark); font-size: .75rem; font-weight: 600; cursor: pointer; transition: all var(--transition); }
+    .tag:hover { background: var(--c-green); color: var(--c-white); }
+    /* Featured first article */
+    .news-featured {
+      border-radius: var(--radius-xl); overflow: hidden;
+      border: 1px solid var(--c-gray-200); margin-bottom: 32px;
+      transition: all var(--transition); background: var(--c-white);
+    }
+    .news-featured:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .news-featured__img { aspect-ratio: 16/7; overflow: hidden; }
+    .news-featured__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .news-featured:hover .news-featured__img img { transform: scale(1.03); }
+    .news-featured__body { padding: 32px; }
+    .news-featured__body h2 { font-size: 1.5rem; font-weight: 700; color: var(--c-green-deep); line-height: 1.3; margin-bottom: 12px; }
+    .news-featured__body p { font-size: .9375rem; color: var(--c-gray-600); line-height: 1.7; }
+    @media (max-width: 1024px) { .news-layout__grid { grid-template-columns: 1fr; } .news-sidebar { position: static; } }
+    @media (max-width: 768px) { .news-card--horizontal { grid-template-columns: 1fr; } .news-card--horizontal .news-card__img { min-height: 200px; } }
+  </style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+<div id="cursor"></div>
+
+<!-- NAVEGACIÓN -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/LOGO-50-anos-AF-positivo.svg" alt="Aluminios Franco">
+    </a>
+    <ul class="nav__menu">
+      <li class="nav__item">
+        <a href="arquitectura.html" class="nav__link">Arquitectura <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav__dropdown nav__dropdown--wide">
+          <div class="nav__dropdown-group">
+            <div class="nav__dropdown-title">Sistemas</div>
+            <a href="arquitectura.html#abatibles" class="nav__dropdown-link">Sistemas Abatibles</a>
+            <a href="arquitectura.html#correderas" class="nav__dropdown-link">Sistemas Correderas</a>
+            <a href="arquitectura.html#proteccion-solar" class="nav__dropdown-link">Protección Solar</a>
+            <a href="arquitectura.html#barandillas" class="nav__dropdown-link">Barandillas</a>
+            <a href="arquitectura.html#muro-cortina" class="nav__dropdown-link">Muro Cortina</a>
+          </div>
+          <div class="nav__dropdown-group">
+            <div class="nav__dropdown-title">Chapas y más</div>
+            <a href="arquitectura.html#normalizados" class="nav__dropdown-link">Normalizados</a>
+            <a href="arquitectura.html#panel-composite" class="nav__dropdown-link">Panel Composite</a>
+            <a href="arquitectura.html#chapas-edificacion" class="nav__dropdown-link">Chapas Edificación</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav__item">
+        <a href="industrial.html" class="nav__link">Industrial <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav__dropdown">
+          <a href="industrial.html#laminados" class="nav__dropdown-link">Laminados – Chapas aluminio</a>
+          <a href="industrial.html#normalizados" class="nav__dropdown-link">Normalizados</a>
+          <a href="industrial.html#carroceria" class="nav__dropdown-link">Carrocería</a>
+          <a href="industrial.html#placa-solar" class="nav__dropdown-link">Sistema Placa Solar</a>
+          <a href="industrial.html#bobinas" class="nav__dropdown-link">Bobinas de aluminio</a>
+        </div>
+      </li>
+      <li class="nav__item"><a href="empresa.html" class="nav__link">Empresa</a></li>
+      <li class="nav__item"><a href="proyectos.html" class="nav__link">Proyectos</a></li>
+      <li class="nav__item"><a href="noticias.html" class="nav__link active">Noticias</a></li>
+      <li class="nav__item">
+        <a href="#" class="nav__link">Servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav__dropdown">
+          <a href="calidad.html" class="nav__dropdown-link">Calidad</a>
+          <a href="bim.html" class="nav__dropdown-link">BIM</a>
+          <a href="presupuestos.html" class="nav__dropdown-link">Programa de presupuestos</a>
+          <a href="oficina-tecnica.html" class="nav__dropdown-link">Oficina técnica</a>
+          <a href="red-comercial.html" class="nav__dropdown-link">Red Comercial</a>
+        </div>
+      </li>
+      <li class="nav__item"><a href="contacto.html" class="nav__cta nav__link">Contacto</a></li>
+      <li class="nav__item"><a href="https://afcatalunya.github.io/intranet/" class="nav__lock nav__link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      </a></li>
+    </ul>
+    <button class="nav__hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header__inner">
+    <span class="page-header__label">Blog</span>
+    <h1>Noticias y Actualidad</h1>
+    <p>Artículos técnicos, novedades de producto y tendencias del sector del aluminio.</p>
+    <div class="page-header__breadcrumb">
+      <a href="index.html">Inicio</a><span>/</span><span>Noticias</span>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENIDO -->
+<div class="container">
+  <div class="news-layout">
+    <div class="news-layout__grid">
+
+      <!-- COLUMNA PRINCIPAL -->
+      <div>
+        <!-- Artículo destacado -->
+        <a href="https://aluminiosfranco.es/blog/diferencia-entre-aluminio-y-pvc/" class="news-featured" target="_blank">
+          <div class="news-featured__img">
+            <img src="https://aluminiosfranco.es/wp-content/uploads/celosias-de-aluminio-3.webp" alt="Diferencia aluminio y PVC" loading="lazy">
+          </div>
+          <div class="news-featured__body">
+            <div class="news-card__date">11 de febrero de 2026</div>
+            <h2>Diferencia entre aluminio y PVC: lo que realmente importa</h2>
+            <p>Para entender qué ventanas son mejores, primero hay que aclarar la diferencia entre aluminio y PVC. Aunque a simple vista puedan parecer similares, existen diferencias fundamentales en rendimiento, durabilidad y sostenibilidad que marcan una distancia significativa entre ambos materiales.</p>
+            <div style="margin-top:20px"><span class="btn btn--primary" style="display:inline-flex">Leer artículo →</span></div>
+          </div>
+        </a>
+
+        <!-- Grid de artículos -->
+        <div class="news-main-grid stagger">
+          <a href="https://aluminiosfranco.es/blog/diferencias-entre-barandillas-tradicionales-y-railing-glass/" class="news-card--horizontal" target="_blank">
+            <div class="news-card__img">
+              <img src="https://aluminiosfranco.es/wp-content/uploads/railing-glass-producto-1.webp" alt="Railing Glass" loading="lazy">
+            </div>
+            <div class="news-card__body">
+              <div class="news-card__date">14 de octubre de 2025</div>
+              <h3>Barandilla de aluminio: diferencias entre barandillas tradicionales y Railing Glass</h3>
+              <p>Una barandilla de aluminio es un sistema de protección formado por perfiles y postes de alta resistencia. Descubre las diferencias clave entre los sistemas tradicionales y el moderno Railing Glass.</p>
+              <span class="news-card__link">Leer más →</span>
+            </div>
+          </a>
+
+          <a href="https://aluminiosfranco.es/blog/chapa-deploye-versatilidad-y-estilo-en-aluminio-expandido/" class="news-card--horizontal" target="_blank">
+            <div class="news-card__img">
+              <img src="https://aluminiosfranco.es/wp-content/uploads/1.webp" alt="Chapa Deployé" loading="lazy">
+            </div>
+            <div class="news-card__body">
+              <div class="news-card__date">26 de mayo de 2025</div>
+              <h3>Chapa deployé: versatilidad y estilo en aluminio expandido</h3>
+              <p>La chapa deployé es un material innovador y altamente versátil que se ha convertido en una solución ideal para proyectos arquitectónicos que buscan funcionalidad y estética.</p>
+              <span class="news-card__link">Leer más →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="news-sidebar">
+        <div class="sidebar-widget">
+          <h4>Artículos recientes</h4>
+          <a href="https://aluminiosfranco.es/blog/diferencia-entre-aluminio-y-pvc/" class="sidebar-mini-card" target="_blank">
+            <img src="https://aluminiosfranco.es/wp-content/uploads/celosias-de-aluminio-3.webp" alt="">
+            <div>
+              <h5>Diferencia entre aluminio y PVC</h5>
+              <span>11 feb 2026</span>
+            </div>
+          </a>
+          <a href="https://aluminiosfranco.es/blog/diferencias-entre-barandillas-tradicionales-y-railing-glass/" class="sidebar-mini-card" target="_blank">
+            <img src="https://aluminiosfranco.es/wp-content/uploads/railing-glass-producto-1.webp" alt="">
+            <div>
+              <h5>Barandillas tradicionales vs Railing Glass</h5>
+              <span>14 oct 2025</span>
+            </div>
+          </a>
+          <a href="https://aluminiosfranco.es/blog/chapa-deploye-versatilidad-y-estilo-en-aluminio-expandido/" class="sidebar-mini-card" target="_blank">
+            <img src="https://aluminiosfranco.es/wp-content/uploads/1.webp" alt="">
+            <div>
+              <h5>Chapa deployé: versatilidad y estilo</h5>
+              <span>26 may 2025</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="sidebar-widget">
+          <h4>Categorías</h4>
+          <div class="tag-cloud">
+            <span class="tag">Arquitectura</span>
+            <span class="tag">Industrial</span>
+            <span class="tag">Chapas</span>
+            <span class="tag">Perfiles</span>
+            <span class="tag">Sostenibilidad</span>
+            <span class="tag">Innovación</span>
+            <span class="tag">Barandillas</span>
+            <span class="tag">Pérgolas</span>
+          </div>
+        </div>
+
+        <div class="sidebar-widget" style="background:var(--c-green-deep);border-color:var(--c-green-deep)">
+          <h4 style="color:var(--c-green-mid)">¿Necesitas asesoramiento?</h4>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.7);margin-bottom:16px;line-height:1.6">Nuestro equipo técnico te ayuda a elegir el mejor sistema para tu proyecto.</p>
+          <a href="contacto.html" class="btn btn--white" style="width:100%;justify-content:center">Contactar →</a>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="https://aluminiosfranco.es/wp-content/uploads/LOGO-50-anos-AF-positivo.svg" alt="Aluminios Franco">
+        <p>Fabricantes y distribuidores de aluminio desde 1975.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="calidad.html">Certificado de calidad</a></li>
+          <li><a href="bim.html">Gestión BIM</a></li>
+          <li><a href="presupuestos.html">Programa Presupuestos</a></li>
+          <li><a href="oficina-tecnica.html">Oficina Técnica</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Murcia</h4>
+        <ul>
+          <li><a href="tel:+34968243704">968 24 37 04</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#cdacab8daca1b8a0a4a3a4a2beabbfaca3aea2e3a8be"><span class="__cf_email__" data-cfemail="76171036171a031b1f181f1905100417181519581305">[email&#160;protected]</span></a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Valencia · Tarragona</h4>
+        <ul>
+          <li><a href="tel:+34961212816">Valencia: 961 21 28 16</a></li>
+          <li><a href="tel:+34977525572">Tarragona: 977 52 55 72</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__eu">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/ES-Financiado-por-la-Uni¢n-Europea_WHITE-1.webp" alt="">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/Logo-PRTR-tres-lineas_BLANCO-1.webp" alt="">
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 Aluminios Franco, S.A.</span>
+      <div class="footer__bottom-links">
+        <a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://aluminiosfranco.es/50-aniversario/" class="badge-50" target="_blank">
+  <img src="https://alumini

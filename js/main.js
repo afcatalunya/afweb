@@ -1,236 +1,97 @@
-/**
- * ALUMINIOS FRANCO — main.js v3.0 PREMIUM
- * Vanilla JS · Sin dependencias · Production ready
- */
+/* ============================================================
+   ALUMINIOS FRANCO — main.js v3.0
+   ============================================================ */
 
-/* ── CURSOR PERSONALIZADO ─────────────────────────────────── */
-(function initCursor() {
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ---- SCROLL PROGRESS ---- */
+  const progress = document.getElementById('scroll-progress');
+  if (progress) {
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      progress.style.width = pct + '%';
+    }, { passive: true });
+  }
+
+  /* ---- CURSOR PERSONALIZADO ---- */
   const cursor = document.getElementById('cursor');
-  if (!cursor || window.matchMedia('(hover:none)').matches) return;
-
-  let mx = -100, my = -100, cx = -100, cy = -100;
-  let raf;
-
-  const move = e => { mx = e.clientX; my = e.clientY; };
-  window.addEventListener('mousemove', move, { passive: true });
-
-  const tick = () => {
-    cx += (mx - cx) * 0.12;
-    cy += (my - cy) * 0.12;
-    cursor.style.left = cx + 'px';
-    cursor.style.top  = cy + 'px';
-    raf = requestAnimationFrame(tick);
-  };
-  raf = requestAnimationFrame(tick);
-
-  // Efecto hover en elementos interactivos
-  const hoverEls = document.querySelectorAll('a, button, [data-cursor]');
-  hoverEls.forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-  });
-})();
-
-/* ── SCROLL PROGRESS ─────────────────────────────────────── */
-(function initScrollProgress() {
-  const bar = document.getElementById('scrollBar');
-  if (!bar) return;
-  const update = () => {
-    const max = document.body.scrollHeight - window.innerHeight;
-    bar.style.width = (window.scrollY / max * 100) + '%';
-  };
-  window.addEventListener('scroll', update, { passive: true });
-})();
-
-/* ── HEADER SCROLL STATE ─────────────────────────────────── */
-(function initHeader() {
-  const header = document.getElementById('header');
-  if (!header) return;
-  const update = () => header.classList.toggle('scrolled', window.scrollY > 60);
-  window.addEventListener('scroll', update, { passive: true });
-  update();
-})();
-
-/* ── MOBILE MENU ─────────────────────────────────────────── */
-(function initMobileMenu() {
-  const toggle = document.getElementById('menuToggle');
-  const nav    = document.getElementById('mainNav');
-  if (!toggle || !nav) return;
-
-  const open = () => {
-    nav.classList.add('open');
-    toggle.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-    const s = toggle.querySelectorAll('span');
-    s[0].style.cssText = 'transform:rotate(45deg) translate(4.5px,4.5px)';
-    s[1].style.cssText = 'opacity:0;transform:scaleX(0)';
-    s[2].style.cssText = 'transform:rotate(-45deg) translate(4.5px,-4.5px)';
-  };
-
-  const close = () => {
-    nav.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-    toggle.querySelectorAll('span').forEach(s => s.style.cssText = '');
-  };
-
-  toggle.addEventListener('click', () =>
-    nav.classList.contains('open') ? close() : open()
-  );
-
-  // Cerrar al hacer clic en cualquier enlace
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
-
-  // Cerrar con Escape
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && nav.classList.contains('open')) close();
-  });
-})();
-
-/* ── REVEAL ON SCROLL (IntersectionObserver) ─────────────── */
-(function initReveal() {
-  const els = document.querySelectorAll('[data-reveal]');
-  if (!els.length) return;
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        io.unobserve(entry.target);
-      }
+  if (cursor && window.matchMedia('(hover: hover)').matches) {
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('a, button, [data-hover]').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+  }
 
-  els.forEach(el => io.observe(el));
-})();
+  /* ---- NAV: scroll effect ---- */
+  const nav = document.querySelector('.nav');
+  if (nav) {
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
 
-/* ── CONTADORES ANIMADOS ─────────────────────────────────── */
-(function initCounters() {
+  /* ---- NAV: hamburger mobile ---- */
+  const hamburger = document.querySelector('.nav__hamburger');
+  const menu = document.querySelector('.nav__menu');
+  if (hamburger && menu) {
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('open');
+      hamburger.classList.toggle('open');
+    });
+  }
+
+  /* ---- STAGGER: Intersection Observer ---- */
+  const staggerEls = document.querySelectorAll('.stagger');
+  if (staggerEls.length) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    staggerEls.forEach(el => io.observe(el));
+  }
+
+  /* ---- COUNTER ANIMATION ---- */
   const counters = document.querySelectorAll('[data-count]');
-  if (!counters.length) return;
-
-  const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
-
-  const animate = (el) => {
-    const target   = parseInt(el.dataset.count);
-    const suffix   = el.dataset.suffix || '';
-    const duration = 1800;
-    const startTs  = performance.now();
-
-    const frame = (now) => {
-      const elapsed = now - startTs;
-      const progress = Math.min(elapsed / duration, 1);
-      const value = Math.round(easeOutCubic(progress) * target);
-      el.textContent = value + suffix;
-      if (progress < 1) requestAnimationFrame(frame);
-    };
-    requestAnimationFrame(frame);
-  };
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(({ isIntersecting, target }) => {
-      if (isIntersecting) {
-        animate(target);
-        io.unobserve(target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  counters.forEach(el => io.observe(el));
-})();
-
-/* ── STAGGER en grids al entrar en pantalla ──────────────── */
-(function initStagger() {
-  const grids = document.querySelectorAll(
-    '.products-grid, .values-grid, .locations-grid, .news-grid, .numbers-grid'
-  );
-  if (!grids.length) return;
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(({ isIntersecting, target }) => {
-      if (!isIntersecting) return;
-      const items = target.children;
-      Array.from(items).forEach((item, i) => {
-        item.style.transitionDelay = (i * 80) + 'ms';
-        item.classList.add('revealed');
+  if (counters.length) {
+    const countIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseInt(el.dataset.count);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1800;
+        const start = performance.now();
+        const animate = (now) => {
+          const t = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = Math.round(eased * target) + suffix;
+          if (t < 1) requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
+        countIO.unobserve(el);
       });
-      io.unobserve(target);
-    });
-  }, { threshold: 0.05 });
+    }, { threshold: 0.5 });
+    counters.forEach(el => countIO.observe(el));
+  }
 
-  grids.forEach(grid => {
-    Array.from(grid.children).forEach(child => {
-      if (!child.hasAttribute('data-reveal')) {
-        child.style.opacity = '0';
-        child.style.transform = 'translateY(20px)';
-        child.style.transition = 'opacity 500ms ease, transform 500ms ease';
-      }
-    });
-    io.observe(grid);
-  });
-})();
-
-/* ── SMOOTH ANCHOR SCROLL ────────────────────────────────── */
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', e => {
-    const selector = link.getAttribute('href');
-    if (selector === '#') return;
-    const target = document.querySelector(selector);
-    if (!target) return;
-    e.preventDefault();
-    const headerH = parseInt(
-      getComputedStyle(document.documentElement).getPropertyValue('--header-h')
-    ) || 76;
-    window.scrollTo({
-      top: target.getBoundingClientRect().top + window.scrollY - headerH - 20,
-      behavior: 'smooth'
-    });
-  });
-});
-
-/* ── COOKIE BANNER ───────────────────────────────────────── */
-(function initCookies() {
-  const banner = document.querySelector('.cookie-banner');
-  if (!banner || localStorage.getItem('af_consent')) return;
-
-  setTimeout(() => banner.classList.add('visible'), 1500);
-
-  const dismiss = (val) => {
-    localStorage.setItem('af_consent', val);
-    banner.classList.remove('visible');
-    setTimeout(() => banner.remove(), 600);
-  };
-
-  banner.querySelector('[data-accept]')?.addEventListener('click', () => dismiss('all'));
-  banner.querySelector('[data-reject]')?.addEventListener('click', () => dismiss('essential'));
-})();
-
-/* ── PARALLAX SUTIL en hero background ───────────────────── */
-(function initParallax() {
+  /* ---- PARALLAX HERO ---- */
   const heroBg = document.querySelector('.hero__bg');
-  if (!heroBg || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (heroBg && window.matchMedia('(min-width: 768px)').matches) {
+    window.addEventListener('scroll', () => {
+      heroBg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+    }, { passive: true });
+  }
 
-  const update = () => {
-    const scrolled = window.scrollY;
-    const vh       = window.innerHeight;
-    if (scrolled < vh * 1.5) {
-      heroBg.style.transform = `translateY(${scrolled * 0.25}px)`;
+  /* ---- ACTIVE NAV LINK ---- */
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav__link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href !== '#' && currentPage.includes(href.replace('.html', ''))) {
+      link.classList.add('active');
     }
-  };
-
-  window.addEventListener('scroll', update, { passive: true });
-})();
-
-/* ── HOVER en project tiles: mostrar localización ───────── */
-(function initProjectHover() {
-  document.querySelectorAll('.project-tile').forEach(tile => {
-    // Ya manejado con CSS, pero añadimos foco para accesibilidad
-    tile.setAttribute('tabindex', '0');
-    tile.addEventListener('keydown', e => {
-      if (e.key === 'Enter') {
-        const link = tile.querySelector('a');
-        if (link) link.click();
-      }
-    });
   });
-})();
+
+});
