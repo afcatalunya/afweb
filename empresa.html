@@ -3,88 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Empresa | Aluminios Franco — Fabricantes y distribuidores desde 1975</title>
-  <meta name="description" content="Conoce Aluminios Franco, S.A. Desde 1975 fabricantes y distribuidores de aluminio con 3 delegaciones y más de 10.000 m² de almacenaje.">
+  <title>Contacto | Aluminios Franco — Murcia, Valencia, Tarragona</title>
+  <meta name="description" content="Contacta con Aluminios Franco. Tres delegaciones en Murcia, Valencia y Tarragona. Teléfonos, emails y formulario de contacto.">
   <link rel="stylesheet" href="css/main.css">
   <style>
-    /* ---- HERO EMPRESA ---- */
-    .empresa-hero {
-      padding-top: var(--nav-h);
-      display: grid; grid-template-columns: 1fr 1fr; min-height: 520px;
-    }
-    .empresa-hero__img { position: relative; overflow: hidden; }
-    .empresa-hero__img img { width: 100%; height: 100%; object-fit: cover; }
-    .empresa-hero__content {
-      background: var(--c-green-deep); padding: 80px 60px;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .empresa-hero__content h1 {
-      font-size: clamp(2rem, 3vw, 3rem); font-weight: 800;
-      color: var(--c-white); line-height: 1.15; margin-bottom: 20px;
-    }
-    .empresa-hero__content h1 em {
-      font-family: var(--f-accent); font-style: italic;
-      color: var(--c-green-mid);
-    }
-    .empresa-hero__content p {
-      font-size: 1.0625rem; color: rgba(255,255,255,.75);
-      line-height: 1.7; margin-bottom: 32px;
-    }
-    /* ---- HISTORIA ---- */
-    .historia { padding: 100px 0; }
-    .historia__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .historia__text h2 { font-size: 2rem; font-weight: 800; color: var(--c-green-deep); margin-bottom: 20px; }
-    .historia__text p { font-size: .9375rem; color: var(--c-gray-600); line-height: 1.75; margin-bottom: 16px; }
-    .historia__img { border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); }
-    .historia__img img { width: 100%; height: 380px; object-fit: cover; }
-    /* ---- VALORES ---- */
-    .valores { background: var(--c-off-white); padding: 80px 0; }
-    .valores__header { text-align: center; margin-bottom: 56px; }
-    /* ---- CALIDAD ---- */
-    .calidad-section { padding: 100px 0; }
-    .calidad-section__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .calidad-section__img { border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); order: -1; }
-    .calidad-section__img img { width: 100%; height: 380px; object-fit: cover; }
-    .calidad-section__text h2 { font-size: 2rem; font-weight: 800; color: var(--c-green-deep); margin-bottom: 8px; }
-    .calidad-section__text h3 { font-size: 1.5rem; font-weight: 300; color: var(--c-green-mid); margin-bottom: 20px; font-style: italic; font-family: var(--f-accent); }
-    .calidad-section__text p { font-size: .9375rem; color: var(--c-gray-600); line-height: 1.75; margin-bottom: 16px; }
-    .calidad-section__pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
-    .pill {
-      padding: 6px 16px; border-radius: 100px;
-      background: var(--c-green-light); color: var(--c-green-dark);
-      font-size: .8rem; font-weight: 600;
-    }
-    /* ---- TIMELINE ---- */
-    .timeline { padding: 80px 0; background: var(--c-green-deep); }
-    .timeline__header { text-align: center; margin-bottom: 56px; }
-    .timeline__grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; }
-    .timeline__grid::before {
-      content: ''; position: absolute; top: 28px; left: 12.5%; right: 12.5%;
-      height: 2px; background: rgba(255,255,255,.15);
-    }
-    .timeline__item { text-align: center; padding: 0 16px; }
-    .timeline__dot {
-      width: 56px; height: 56px; border-radius: 50%;
-      background: var(--c-green); border: 3px solid var(--c-green-mid);
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 16px; font-size: .75rem; font-weight: 800;
-      color: var(--c-white); position: relative; z-index: 1;
-    }
-    .timeline__item h4 { font-size: .9375rem; font-weight: 700; color: var(--c-white); margin-bottom: 8px; }
-    .timeline__item p { font-size: .8rem; color: rgba(255,255,255,.6); line-height: 1.5; }
-    /* ---- DELEGACIONES ---- */
-    .delegaciones { padding: 80px 0; }
-    .delegaciones__header { text-align: center; margin-bottom: 56px; }
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .empresa-hero { grid-template-columns: 1fr; }
-      .empresa-hero__img { height: 280px; }
-      .empresa-hero__content { padding: 40px 24px; }
-      .historia__grid, .calidad-section__grid { grid-template-columns: 1fr; }
-      .calidad-section__img { order: 0; }
-      .timeline__grid { grid-template-columns: 1fr 1fr; }
-      .timeline__grid::before { display: none; }
-    }
+    .contact-layout { padding: 80px 0; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .contact-info h2 { font-size: 2rem; font-weight: 800; color: var(--c-green-deep); margin-bottom: 12px; }
+    .contact-info > p { font-size: .9375rem; color: var(--c-gray-600); line-height: 1.7; margin-bottom: 40px; }
+    .contact-block { margin-bottom: 32px; }
+    .contact-block h3 { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--c-green); margin-bottom: 12px; }
+    .contact-block .contact-item { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; font-size: .9rem; color: var(--c-gray-600); }
+    .contact-block .contact-item svg { width: 16px; height: 16px; color: var(--c-green); flex-shrink: 0; }
+    .contact-block .contact-item a { color: var(--c-gray-600); transition: color var(--transition); }
+    .contact-block .contact-item a:hover { color: var(--c-green); }
+    /* Tabs delegaciones */
+    .delegacion-tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+    .delegacion-tab { padding: 8px 18px; border-radius: 100px; border: 1.5px solid var(--c-gray-200); font-size: .8rem; font-weight: 600; color: var(--c-gray-600); cursor: pointer; transition: all var(--transition); background: var(--c-white); }
+    .delegacion-tab.active { background: var(--c-green); color: var(--c-white); border-color: var(--c-green); }
+    .delegacion-panel { display: none; }
+    .delegacion-panel.active { display: block; }
+    /* Mapa placeholder */
+    .map-embed { border-radius: var(--radius-lg); overflow: hidden; height: 200px; background: var(--c-gray-100); margin-top: 16px; position: relative; }
+    .map-embed a { display: flex; align-items: center; justify-content: center; height: 100%; color: var(--c-green); font-weight: 600; font-size: .875rem; gap: 6px; }
+    .map-embed a svg { width: 20px; height: 20px; }
+    /* Form */
+    .contact-form-wrap { background: var(--c-white); border: 1px solid var(--c-gray-200); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-sm); }
+    .contact-form-wrap h3 { font-size: 1.25rem; font-weight: 700; color: var(--c-green-deep); margin-bottom: 8px; }
+    .contact-form-wrap p { font-size: .875rem; color: var(--c-gray-600); margin-bottom: 28px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-success { display: none; text-align: center; padding: 32px; }
+    .form-success svg { width: 48px; height: 48px; color: var(--c-green); margin: 0 auto 16px; }
+    .form-success h4 { font-size: 1.125rem; font-weight: 700; color: var(--c-green-deep); margin-bottom: 8px; }
+    .form-success p { font-size: .875rem; color: var(--c-gray-600); }
+    @media (max-width: 1024px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
+    @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } .contact-form-wrap { padding: 24px; } }
   </style>
 </head>
 <body>
@@ -113,7 +66,6 @@
           <div class="nav__dropdown-group">
             <div class="nav__dropdown-title">Chapas y más</div>
             <a href="arquitectura.html#normalizados" class="nav__dropdown-link">Normalizados</a>
-            <a href="arquitectura.html#sistemas-adicionales" class="nav__dropdown-link">Sistemas Adicionales</a>
             <a href="arquitectura.html#panel-composite" class="nav__dropdown-link">Panel Composite</a>
             <a href="arquitectura.html#chapas-edificacion" class="nav__dropdown-link">Chapas Edificación</a>
           </div>
@@ -129,7 +81,7 @@
           <a href="industrial.html#bobinas" class="nav__dropdown-link">Bobinas de aluminio</a>
         </div>
       </li>
-      <li class="nav__item"><a href="empresa.html" class="nav__link active">Empresa</a></li>
+      <li class="nav__item"><a href="empresa.html" class="nav__link">Empresa</a></li>
       <li class="nav__item"><a href="proyectos.html" class="nav__link">Proyectos</a></li>
       <li class="nav__item"><a href="noticias.html" class="nav__link">Noticias</a></li>
       <li class="nav__item">
@@ -142,237 +94,182 @@
           <a href="red-comercial.html" class="nav__dropdown-link">Red Comercial</a>
         </div>
       </li>
-      <li class="nav__item"><a href="contacto.html" class="nav__cta nav__link">Contacto</a></li>
-      <li class="nav__item"><a href="https://afcatalunya.github.io/intranet/" class="nav__lock nav__link" title="Área privada">
+      <li class="nav__item"><a href="contacto.html" class="nav__cta nav__link active">Contacto</a></li>
+      <li class="nav__item"><a href="https://afcatalunya.github.io/intranet/" class="nav__lock nav__link">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
       </a></li>
     </ul>
-    <button class="nav__hamburger" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav__hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<!-- HERO EMPRESA -->
-<section class="empresa-hero">
-  <div class="empresa-hero__img">
-    <img src="https://aluminiosfranco.es/wp-content/uploads/2014_03_21_17_05_39_002-1-1024x683.webp" alt="Almacén Aluminios Franco" loading="eager">
-  </div>
-  <div class="empresa-hero__content">
-    <span class="section-label" style="color:var(--c-green-mid)">Quiénes somos</span>
-    <h1>Fabricantes y distribuidores de aluminio<br><em>desde 1975</em></h1>
-    <p>Tres delegaciones, más de 10.000 m² de almacenaje y casi 50 años de experiencia al servicio de la arquitectura, la edificación y la industria.</p>
-    <a href="contacto.html" class="btn btn--white" style="align-self:flex-start">Contactar con nosotros →</a>
-  </div>
-</section>
-
-<!-- STATS -->
-<div class="stats-strip">
-  <div class="container">
-    <div class="stats-strip__grid">
-      <div class="stats-strip__item">
-        <div class="stats-strip__num"><span data-count="50" data-suffix="+">0</span></div>
-        <div class="stats-strip__label">Años de experiencia</div>
-      </div>
-      <div class="stats-strip__item">
-        <div class="stats-strip__num"><span data-count="10000" data-suffix=" m²">0</span></div>
-        <div class="stats-strip__label">Superficie de almacenaje</div>
-      </div>
-      <div class="stats-strip__item">
-        <div class="stats-strip__num"><span data-count="3" data-suffix="">0</span></div>
-        <div class="stats-strip__label">Delegaciones</div>
-      </div>
-      <div class="stats-strip__item">
-        <div class="stats-strip__num"><span data-count="20" data-suffix="+">0</span></div>
-        <div class="stats-strip__label">Sectores atendidos</div>
-      </div>
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header__inner">
+    <span class="page-header__label">Contacto</span>
+    <h1>Hablemos</h1>
+    <p>Contacta con nosotros. Te ayudamos a resolver tus dudas y encontrar la mejor solución para tu proyecto.</p>
+    <div class="page-header__breadcrumb">
+      <a href="index.html">Inicio</a><span>/</span><span>Contacto</span>
     </div>
   </div>
 </div>
 
-<!-- NUESTRA HISTORIA -->
-<section class="historia">
-  <div class="container">
-    <div class="historia__grid stagger">
-      <div class="historia__text">
-        <span class="section-label">Nuestra historia</span>
-        <h2>Casi medio siglo dando forma al aluminio</h2>
-        <p>Somos una empresa que desde 1975 trabajamos como fabricantes y distribuidores de aluminio en sus diferentes aplicaciones: arquitectura, edificación, industria, transporte… convirtiéndonos en una de las empresas referentes en el mercado, con presencia en más de 20 sectores.</p>
-        <p>Poseemos una amplia gama de perfilería y chapa que, al cabo de casi 50 años de experiencia, hemos ido ampliando y completando de acuerdo con las necesidades del sector. Nuestros productos son fabricados por empresas de gran prestigio, líderes en el tratamiento y extrusión del aluminio.</p>
-        <p>Desde nuestros centros de distribución situados en el litoral mediterráneo, damos servicio a toda la península ibérica.</p>
-        <div style="margin-top:28px">
-          <a href="proyectos.html" class="btn btn--primary">Ver nuestros proyectos →</a>
-        </div>
-      </div>
-      <div class="historia__img">
-        <img src="https://aluminiosfranco.es/wp-content/uploads/man-reading-newspaper-1024x683.webp" alt="Historia Aluminios Franco" loading="lazy">
-      </div>
-    </div>
-  </div>
-</section>
+<!-- CONTENIDO CONTACTO -->
+<div class="container">
+  <div class="contact-layout">
+    <div class="contact-grid">
 
-<!-- NUESTROS VALORES -->
-<section class="valores">
-  <div class="container">
-    <div class="valores__header">
-      <span class="section-label">Nuestros valores</span>
-      <h2 class="section-title">Lo que nos define</h2>
-      <p class="section-subtitle">Cuatro pilares que guían cada decisión y cada proyecto.</p>
-    </div>
-    <div class="grid-4 stagger">
-      <div class="value-card">
-        <div class="value-card__icon">🤝</div>
-        <h3>Cercanía y Transparencia</h3>
-        <p>Conectamos contigo de manera cercana y transparente para brindarte la mejor experiencia en suministro de productos de aluminio.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-card__icon">🎯</div>
-        <h3>Accesibilidad Multinivel</h3>
-        <p>Estamos aquí para atender tus necesidades sin importar el tamaño de tu proyecto. Tu satisfacción es nuestra prioridad absoluta.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-card__icon">⭐</div>
-        <h3>Confianza y Compromiso</h3>
-        <p>Nuestra integridad y compromiso con la excelencia aseguran que puedas confiar en nosotros para obtener productos de calidad.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-card__icon">🌱</div>
-        <h3>Sostenibilidad Responsable</h3>
-        <p>Apostamos por el aluminio, material 100% reciclable. Nuestros proyectos se realizan con el menor impacto ambiental posible.</p>
-      </div>
-    </div>
-  </div>
-</section>
+      <!-- INFORMACIÓN -->
+      <div class="contact-info">
+        <span class="section-label">Nuestras oficinas</span>
+        <h2>Tres delegaciones,<br>siempre cerca</h2>
+        <p>Selecciona la delegación más próxima a tu ubicación y contacta directamente con nuestro equipo.</p>
 
-<!-- CALIDAD Y FILOSOFÍA -->
-<section class="calidad-section">
-  <div class="container">
-    <div class="calidad-section__grid stagger">
-      <div class="calidad-section__img">
-        <img src="https://aluminiosfranco.es/wp-content/uploads/imagen-1-1024x683.webp" alt="Calidad Aluminios Franco" loading="lazy">
-      </div>
-      <div class="calidad-section__text">
-        <span class="section-label">Calidad</span>
-        <h2>Una infinidad</h2>
-        <h3>de posibilidades</h3>
-        <p>Contamos con productos pioneros y de gran calidad, con la capacidad de adaptarnos a los nuevos usos y necesidades que puedan surgir dentro del sector del aluminio.</p>
-        <p><strong>Nuestra filosofía</strong> como fabricantes y distribuidores es, sin duda, ofrecer la mayor calidad, comodidad y satisfacción en todos nuestros servicios.</p>
-        <p><strong>Medio ambiente:</strong> Comprometidos con el entorno, apostamos por un material limpio, de mínimo mantenimiento y 100% reciclable. El reciclaje del aluminio consume solo el 5% de la energía original de producción.</p>
-        <div class="calidad-section__pills">
-          <span class="pill">100% reciclable</span>
-          <span class="pill">Bajo mantenimiento</span>
-          <span class="pill">Alta durabilidad</span>
-          <span class="pill">Economía circular</span>
-          <span class="pill">-95% CO₂ vs producción nueva</span>
+        <div class="delegacion-tabs">
+          <button class="delegacion-tab active" data-tab="murcia">Murcia</button>
+          <button class="delegacion-tab" data-tab="valencia">Valencia</button>
+          <button class="delegacion-tab" data-tab="tarragona">Tarragona</button>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- TIMELINE -->
-<section class="timeline">
-  <div class="container">
-    <div class="timeline__header">
-      <span class="section-label" style="color:var(--c-green-mid)">50 años en forma</span>
-      <h2 class="section-title section-title--white">Un camino de crecimiento</h2>
-    </div>
-    <div class="timeline__grid stagger">
-      <div class="timeline__item">
-        <div class="timeline__dot">1975</div>
-        <h4>Fundación</h4>
-        <p>Nace Aluminios Franco en Murcia como distribuidor de perfiles y chapas de aluminio.</p>
-      </div>
-      <div class="timeline__item">
-        <div class="timeline__dot">1990s</div>
-        <h4>Expansión</h4>
-        <p>Apertura de la delegación de Valencia y ampliación del catálogo de productos industriales.</p>
-      </div>
-      <div class="timeline__item">
-        <div class="timeline__dot">2000s</div>
-        <h4>Consolidación</h4>
-        <p>Delegación en Tarragona. Más de 10.000 m² de almacenaje total en tres centros.</p>
-      </div>
-      <div class="timeline__item">
-        <div class="timeline__dot">2025</div>
-        <h4>50 Aniversario</h4>
-        <p>Medio siglo dando forma al aluminio. Referentes en arquitectura e industria.</p>
-      </div>
-    </div>
-  </div>
-</section>
+        <!-- Murcia -->
+        <div class="delegacion-panel active" id="panel-murcia">
+          <h3 style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--c-green);margin-bottom:12px">Sede Central · Murcia</h3>
+          <div class="contact-item" style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:.9rem;color:var(--c-gray-600)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:var(--c-green);flex-shrink:0;margin-top:2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Ctra. Alicante Km. 1,5 – Calle Industria 2, S/N, 30007 Murcia
+          </div>
+          <div class="contact-item" style="display:flex;gap:10px;align-items:center;margin-bottom:10px;font-size:.9rem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:var(--c-green);flex-shrink:0"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            <a href="tel:+34968243704" style="color:var(--c-gray-600)">968 24 37 04</a>
+          </div>
+          <div class="contact-item" style="display:flex;gap:10px;align-items:center;margin-bottom:10px;font-size:.9rem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:var(--c-green);flex-shrink:0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:af@aluminiosfranco.es" style="color:var(--c-gray-600)">af@aluminiosfranco.es</a>
+          </div>
+          <div class="map-embed">
+            <a href="https://www.google.com/maps/dir//Aluminios+Franco,+S.A.,+C.+Industria,+2,+30007+Murcia" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ver en Google Maps
+            </a>
+          </div>
+        </div>
 
-<!-- DELEGACIONES -->
-<section class="delegaciones">
-  <div class="container">
-    <div class="delegaciones__header">
-      <span class="section-label">Dónde estamos</span>
-      <h2 class="section-title">Tres delegaciones,<br>un mismo compromiso</h2>
-    </div>
-    <div class="grid-3 stagger">
-      <div class="location-card">
-        <div class="location-card__head">
-          <h3>Murcia — Sede central</h3>
-          <span>Ctra. Alicante Km. 1,5</span>
-        </div>
-        <div class="location-card__body">
-          <div class="location-card__row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <a href="https://maps.google.com/?q=Aluminios+Franco+Murcia" target="_blank">Calle Industria 2, S/N, 30007 Murcia</a>
+        <!-- Valencia -->
+        <div class="delegacion-panel" id="panel-valencia">
+          <h3 style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--c-green);margin-bottom:12px">Delegación Valencia</h3>
+          <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:.9rem;color:var(--c-gray-600)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:var(--c-green);flex-shrink:0;margin-top:2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Calle Tabardo, 17, 46469 Beniparrell, Valencia
           </div>
-          <div class="location-card__row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
-            <a href="tel:+34968243704">968 24 37 04</a>
+          <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px;font-size:.9rem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:var(--c-green);flex-shrink:0"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            <a href="tel:+34961212816" style="color:var(--c-gray-600)">961 21 28 16</a>
           </div>
-          <div class="location-card__row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:af@aluminiosfranco.es">af@aluminiosfranco.es</a>
+          <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px;font-size:.9rem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:var(--c-green);flex-shrink:0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:afvalencia@aluminiosfranco.es" style="color:var(--c-gray-600)">afvalencia@aluminiosfranco.es</a>
+          </div>
+          <div class="map-embed">
+            <a href="https://www.google.com/maps/dir//Aluminios+Franco+Valencia,+Carrer+Tabardo,+Beniparrell" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ver en Google Maps
+            </a>
           </div>
         </div>
-      </div>
-      <div class="location-card">
-        <div class="location-card__head">
-          <h3>Valencia</h3>
-          <span>Beniparrell</span>
-        </div>
-        <div class="location-card__body">
-          <div class="location-card__row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <a href="https://maps.google.com/?q=Aluminios+Franco+Valencia" target="_blank">Calle Tabardo 17, 46469 Beniparrell, Valencia</a>
+
+        <!-- Tarragona -->
+        <div class="delegacion-panel" id="panel-tarragona">
+          <h3 style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--c-green);margin-bottom:12px">Delegación Tarragona</h3>
+          <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:.9rem;color:var(--c-gray-600)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:var(--c-green);flex-shrink:0;margin-top:2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Polígon Industrial de Constantí, 43120 Constantí, Tarragona
           </div>
-          <div class="location-card__row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
-            <a href="tel:+34961212816">961 21 28 16</a>
+          <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px;font-size:.9rem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:var(--c-green);flex-shrink:0"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            <a href="tel:+34977525572" style="color:var(--c-gray-600)">977 52 55 72</a>
           </div>
-          <div class="location-card__row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:af@aluminiosfranco.es">af@aluminiosfranco.es</a>
+          <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px;font-size:.9rem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:var(--c-green);flex-shrink:0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:aftarragona@aluminiosfranco.es" style="color:var(--c-gray-600)">aftarragona@aluminiosfranco.es</a>
+          </div>
+          <div class="map-embed">
+            <a href="https://www.google.com/maps/dir//Aluminios+Franco+Tarragona,+Constantí" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ver en Google Maps
+            </a>
           </div>
         </div>
       </div>
-      <div class="location-card">
-        <div class="location-card__head">
-          <h3>Tarragona</h3>
-          <span>Polígon Industrial Constantí</span>
+
+      <!-- FORMULARIO -->
+      <div class="contact-form-wrap">
+        <h3>Envíanos un mensaje</h3>
+        <p>Completa el formulario y te responderemos en menos de 24 horas.</p>
+        <div id="form-container">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre *</label>
+              <input type="text" id="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+              <label>Apellidos *</label>
+              <input type="text" id="apellidos" placeholder="Tus apellidos" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>E-mail *</label>
+              <input type="email" id="email" placeholder="tu@email.com" required>
+            </div>
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input type="tel" id="telefono" placeholder="6XX XXX XXX">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Empresa / Profesión</label>
+              <input type="text" id="empresa" placeholder="Empresa o profesión">
+            </div>
+            <div class="form-group">
+              <label>Localidad</label>
+              <input type="text" id="localidad" placeholder="Tu ciudad">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Delegación de interés</label>
+            <select id="delegacion">
+              <option value="">Seleccionar delegación</option>
+              <option value="murcia">Murcia (Sede Central)</option>
+              <option value="valencia">Valencia</option>
+              <option value="tarragona">Tarragona</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mensaje *</label>
+            <textarea id="mensaje" placeholder="Describe tu consulta o proyecto..." required></textarea>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" id="privacidad" required>
+              <label for="privacidad">He leído y acepto la <a href="#">política de privacidad</a></label>
+            </div>
+          </div>
+          <button class="btn btn--primary" id="submit-btn" style="width:100%;justify-content:center;padding:14px">
+            Enviar mensaje →
+          </button>
         </div>
-        <div class="location-card__body">
-          <div class="location-card__row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <a href="https://maps.google.com/?q=Aluminios+Franco+Tarragona" target="_blank">Polígon Industrial de Constantí, 43120 Tarragona</a>
-          </div>
-          <div class="location-card__row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
-            <a href="tel:+34977525572">977 52 55 72</a>
-          </div>
-          <div class="location-card__row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:af@aluminiosfranco.es">af@aluminiosfranco.es</a>
-          </div>
+        <div class="form-success" id="form-success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h4>¡Mensaje enviado!</h4>
+          <p>Gracias por contactar con Aluminios Franco. Nos pondremos en contacto contigo en breve.</p>
         </div>
       </div>
+
     </div>
   </div>
-</section>
+</div>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -380,16 +277,15 @@
     <div class="footer__grid">
       <div class="footer__brand">
         <img src="https://aluminiosfranco.es/wp-content/uploads/LOGO-50-anos-AF-positivo.svg" alt="Aluminios Franco">
-        <p>Fabricantes y distribuidores de aluminio desde 1975. Arquitectura, edificación e industria.</p>
+        <p>Fabricantes y distribuidores de aluminio desde 1975.</p>
       </div>
       <div class="footer__col">
         <h4>Servicios</h4>
         <ul>
           <li><a href="calidad.html">Certificado de calidad</a></li>
           <li><a href="bim.html">Gestión BIM</a></li>
-          <li><a href="presupuestos.html">Programa de Presupuestos</a></li>
+          <li><a href="presupuestos.html">Programa Presupuestos</a></li>
           <li><a href="oficina-tecnica.html">Oficina Técnica</a></li>
-          <li><a href="red-comercial.html">Red Comercial</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -397,7 +293,6 @@
         <ul>
           <li><a href="tel:+34968243704">968 24 37 04</a></li>
           <li><a href="mailto:af@aluminiosfranco.es">af@aluminiosfranco.es</a></li>
-          <li><a href="#">Calle Industria 2, 30007</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -405,6 +300,35 @@
         <ul>
           <li><a href="tel:+34961212816">Valencia: 961 21 28 16</a></li>
           <li><a href="tel:+34977525572">Tarragona: 977 52 55 72</a></li>
-          <li><a href="mailto:af@aluminiosfranco.es">af@aluminiosfranco.es</a></li>
-          <li><a href="mailto:af@aluminiosfranco.es">af@aluminiosfranco.es</a></li>
-   
+        </ul>
+      </div>
+    </div>
+    <div class="footer__eu">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/ES-Financiado-por-la-Uni¢n-Europea_WHITE-1.webp" alt="">
+      <img src="https://aluminiosfranco.es/wp-content/uploads/Logo-PRTR-tres-lineas_BLANCO-1.webp" alt="">
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 Aluminios Franco, S.A.</span>
+      <div class="footer__bottom-links">
+        <a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://aluminiosfranco.es/50-aniversario/" class="badge-50" target="_blank">
+  <img src="https://aluminiosfranco.es/wp-content/uploads/LOGO-50-anos-AF-positivo-1-1.webp" alt="50 años">
+</a>
+
+<script src="js/main.js"></script>
+<script>
+  // Tabs delegaciones
+  document.querySelectorAll('.delegacion-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.delegacion-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.delegacion-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+  // Formulario (simulado — conectar con Formspree

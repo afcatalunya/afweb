@@ -1,422 +1,97 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arquitectura | Aluminios Franco — Sistemas de aluminio para la edificación</title>
-  <meta name="description" content="Sistemas de aluminio para arquitectura: abatibles, correderas, muro cortina, barandillas, protección solar, chapas y panel composite.">
-  <link rel="stylesheet" href="css/main.css">
-  <style>
-    /* FAMILIA ANCHORS */
-    .familia-section { padding: 80px 0; scroll-margin-top: calc(var(--nav-h) + 24px); }
-    .familia-section + .familia-section { border-top: 1px solid var(--c-gray-200); }
-    .familia-section:nth-child(even) { background: var(--c-off-white); }
-    .familia-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; flex-wrap: wrap; gap: 16px; }
-    .familia-header-left h2 { font-size: 2rem; font-weight: 800; color: var(--c-green-deep); }
-    .familia-header-left p { font-size: .9375rem; color: var(--c-gray-600); max-width: 480px; margin-top: 8px; }
-    /* Index sidebar */
-    .arch-layout { display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
-    .arch-sidebar { position: sticky; top: calc(var(--nav-h) + 24px); background: var(--c-white); border: 1px solid var(--c-gray-200); border-radius: var(--radius-lg); padding: 20px; }
-    .arch-sidebar h4 { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--c-green); margin-bottom: 12px; }
-    .arch-sidebar ul { display: flex; flex-direction: column; gap: 4px; }
-    .arch-sidebar ul li a { font-size: .825rem; color: var(--c-gray-600); padding: 6px 10px; display: block; border-radius: var(--radius-sm); border-left: 2px solid transparent; transition: all var(--transition); }
-    .arch-sidebar ul li a:hover { color: var(--c-green); background: var(--c-green-light); border-left-color: var(--c-green); }
-    /* CTA card */
-    .cta-card { background: var(--c-green-deep); border-radius: var(--radius-lg); padding: 24px; margin-top: 16px; }
-    .cta-card p { font-size: .8rem; color: rgba(255,255,255,.7); margin-bottom: 12px; line-height: 1.5; }
-    .cta-card a { display: block; text-align: center; }
-    @media (max-width: 1024px) { .arch-layout { grid-template-columns: 1fr; } .arch-sidebar { position: static; } }
-  </style>
-</head>
-<body>
+/* ============================================================
+   ALUMINIOS FRANCO — main.js v3.0
+   ============================================================ */
 
-<div id="scroll-progress"></div>
-<div id="cursor"></div>
+document.addEventListener('DOMContentLoaded', () => {
 
-<!-- NAVEGACIÓN -->
-<nav class="nav">
-  <div class="nav__inner">
-    <a href="index.html" class="nav__logo">
-      <img src="https://aluminiosfranco.es/wp-content/uploads/LOGO-50-anos-AF-positivo.svg" alt="Aluminios Franco">
-    </a>
-    <ul class="nav__menu">
-      <li class="nav__item">
-        <a href="arquitectura.html" class="nav__link active">Arquitectura <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
-        <div class="nav__dropdown nav__dropdown--wide">
-          <div class="nav__dropdown-group">
-            <div class="nav__dropdown-title">Sistemas</div>
-            <a href="#abatibles" class="nav__dropdown-link">Sistemas Abatibles</a>
-            <a href="#correderas" class="nav__dropdown-link">Sistemas Correderas</a>
-            <a href="#proteccion-solar" class="nav__dropdown-link">Protección Solar</a>
-            <a href="#barandillas" class="nav__dropdown-link">Barandillas</a>
-            <a href="#muro-cortina" class="nav__dropdown-link">Muro Cortina</a>
-          </div>
-          <div class="nav__dropdown-group">
-            <div class="nav__dropdown-title">Chapas y más</div>
-            <a href="#normalizados" class="nav__dropdown-link">Normalizados</a>
-            <a href="#sistemas-adicionales" class="nav__dropdown-link">Sistemas Adicionales</a>
-            <a href="#panel-composite" class="nav__dropdown-link">Panel Composite</a>
-            <a href="#chapas-edificacion" class="nav__dropdown-link">Chapas Edificación</a>
-          </div>
-        </div>
-      </li>
-      <li class="nav__item">
-        <a href="industrial.html" class="nav__link">Industrial <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
-        <div class="nav__dropdown">
-          <a href="industrial.html#laminados" class="nav__dropdown-link">Laminados – Chapas aluminio</a>
-          <a href="industrial.html#normalizados" class="nav__dropdown-link">Normalizados</a>
-          <a href="industrial.html#carroceria" class="nav__dropdown-link">Carrocería</a>
-          <a href="industrial.html#placa-solar" class="nav__dropdown-link">Sistema Placa Solar</a>
-          <a href="industrial.html#bobinas" class="nav__dropdown-link">Bobinas de aluminio</a>
-        </div>
-      </li>
-      <li class="nav__item"><a href="empresa.html" class="nav__link">Empresa</a></li>
-      <li class="nav__item"><a href="proyectos.html" class="nav__link">Proyectos</a></li>
-      <li class="nav__item"><a href="noticias.html" class="nav__link">Noticias</a></li>
-      <li class="nav__item">
-        <a href="#" class="nav__link">Servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
-        <div class="nav__dropdown">
-          <a href="calidad.html" class="nav__dropdown-link">Calidad</a>
-          <a href="bim.html" class="nav__dropdown-link">BIM</a>
-          <a href="presupuestos.html" class="nav__dropdown-link">Programa de presupuestos</a>
-          <a href="oficina-tecnica.html" class="nav__dropdown-link">Oficina técnica</a>
-          <a href="red-comercial.html" class="nav__dropdown-link">Red Comercial</a>
-        </div>
-      </li>
-      <li class="nav__item"><a href="contacto.html" class="nav__cta nav__link">Contacto</a></li>
-      <li class="nav__item"><a href="https://afcatalunya.github.io/intranet/" class="nav__lock nav__link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-      </a></li>
-    </ul>
-    <button class="nav__hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
-  </div>
-</nav>
+  /* ---- SCROLL PROGRESS ---- */
+  const progress = document.getElementById('scroll-progress');
+  if (progress) {
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      progress.style.width = pct + '%';
+    }, { passive: true });
+  }
 
-<!-- PAGE HEADER -->
-<div class="page-header">
-  <div class="page-header__inner">
-    <span class="page-header__label">Catálogo</span>
-    <h1>Sistemas de Arquitectura</h1>
-    <p>Aluminio para la arquitectura con más de 50 años de experiencia. Sistemas Continental de alto rendimiento.</p>
-    <div class="page-header__breadcrumb">
-      <a href="index.html">Inicio</a><span>/</span><span>Arquitectura</span>
-    </div>
-  </div>
-</div>
+  /* ---- CURSOR PERSONALIZADO ---- */
+  const cursor = document.getElementById('cursor');
+  if (cursor && window.matchMedia('(hover: hover)').matches) {
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, [data-hover]').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+  }
 
-<div class="container" style="padding-top:48px;padding-bottom:80px">
-  <div class="arch-layout">
+  /* ---- NAV: scroll effect ---- */
+  const nav = document.querySelector('.nav');
+  if (nav) {
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
 
-    <!-- SIDEBAR ÍNDICE -->
-    <aside class="arch-sidebar">
-      <h4>Familias de producto</h4>
-      <ul>
-        <li><a href="#abatibles">Sistemas Abatibles</a></li>
-        <li><a href="#correderas">Sistemas Correderas</a></li>
-        <li><a href="#proteccion-solar">Protección Solar</a></li>
-        <li><a href="#barandillas">Barandillas</a></li>
-        <li><a href="#normalizados">Normalizados</a></li>
-        <li><a href="#sistemas-adicionales">Sistemas Adicionales</a></li>
-        <li><a href="#muro-cortina">Muro Cortina</a></li>
-        <li><a href="#panel-composite">Panel Composite</a></li>
-        <li><a href="#chapas-edificacion">Chapas Edificación</a></li>
-      </ul>
-      <div class="cta-card">
-        <p>¿Necesitas asesoramiento técnico para tu proyecto?</p>
-        <a href="contacto.html" class="btn btn--white btn" style="font-size:.8rem;padding:8px 16px">Contactar →</a>
-      </div>
-    </aside>
+  /* ---- NAV: hamburger mobile ---- */
+  const hamburger = document.querySelector('.nav__hamburger');
+  const menu = document.querySelector('.nav__menu');
+  if (hamburger && menu) {
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('open');
+      hamburger.classList.toggle('open');
+    });
+  }
 
-    <!-- FAMILIAS -->
-    <div>
+  /* ---- STAGGER: Intersection Observer ---- */
+  const staggerEls = document.querySelectorAll('.stagger');
+  if (staggerEls.length) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    staggerEls.forEach(el => io.observe(el));
+  }
 
-      <!-- SISTEMAS ABATIBLES -->
-      <section id="abatibles" class="familia-section">
-        <div class="familia-header">
-          <div class="familia-header-left">
-            <span class="section-label">Arquitectura</span>
-            <h2>Sistemas Abatibles</h2>
-            <p>Sistemas de ventanas y puertas abatibles con rotura de puente térmico (RPT) para máxima eficiencia energética.</p>
-          </div>
-          <a href="contacto.html" class="btn btn--outline">Solicitar información →</a>
-        </div>
-        <div class="grid-4 stagger">
-          <div class="product-card">
-            <div class="product-card__badge">RPT</div>
-            <div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center">
-              <span style="font-size:2rem;opacity:.3">🪟</span>
-            </div>
-            <div class="product-card__body">
-              <h3>SC 80-87 RPT</h3>
-              <p>Sistema abatible de altas prestaciones con rotura de puente térmico de 80/87mm.</p>
-              <a href="https://aluminiosfranco.es/productos/sc-80-87-rpt/" class="product-card__link" target="_blank">Ver producto →</a>
-            </div>
-          </div>
-          <div class="product-card">
-            <div class="product-card__badge">RPT</div>
-            <div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center">
-              <span style="font-size:2rem;opacity:.3">🪟</span>
-            </div>
-            <div class="product-card__body">
-              <h3>EXHO 75 – Hoja Oculta</h3>
-              <p>Sistema abatible con hoja oculta para una estética de línea limpia y minimalista.</p>
-              <a href="https://aluminiosfranco.es/productos/exho-75-hoja-oculta/" class="product-card__link" target="_blank">Ver producto →</a>
-            </div>
-          </div>
-          <div class="product-card">
-            <div class="product-card__badge">RPT</div>
-            <div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center">
-              <span style="font-size:2rem;opacity:.3">🪟</span>
-            </div>
-            <div class="product-card__body">
-              <h3>Abatible 54-61 RPT</h3>
-              <p>Sistema abatible con RPT de 54-61mm, equilibrio entre prestaciones y coste.</p>
-              <a href="https://aluminiosfranco.es/productos/abatible-54-61-rpt/" class="product-card__link" target="_blank">Ver producto →</a>
-            </div>
-          </div>
-          <div class="product-card">
-            <div class="product-card__badge">RPT</div>
-            <div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center">
-              <span style="font-size:2rem;opacity:.3">🪟</span>
-            </div>
-            <div class="product-card__body">
-              <h3>Abatible 45-52 RPT</h3>
-              <p>Sistema abatible compacto con rotura de puente térmico para proyectos residenciales.</p>
-              <a href="https://aluminiosfranco.es/productos/abatible-45-52-rpt/" class="product-card__link" target="_blank">Ver producto →</a>
-            </div>
-          </div>
-          <div class="product-card">
-            <div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center">
-              <span style="font-size:2rem;opacity:.3">🪟</span>
-            </div>
-            <div class="product-card__body">
-              <h3>Abatible 45-52</h3>
-              <p>Versión estándar del sistema 45-52mm, solución económica de alta calidad.</p>
-              <a href="https://aluminiosfranco.es/productos/abatible-45-52/" class="product-card__link" target="_blank">Ver producto →</a>
-            </div>
-          </div>
-          <div class="product-card">
-            <div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center">
-              <span style="font-size:2rem;opacity:.3">🪟</span>
-            </div>
-            <div class="product-card__body">
-              <h3>Abatible 40-47</h3>
-              <p>Sistema de perfil estrecho para vanos de pequeño y mediano tamaño.</p>
-              <a href="https://aluminiosfranco.es/productos/abatible-40-47/" class="product-card__link" target="_blank">Ver producto →</a>
-            </div>
-          </div>
-          <div class="product-card">
-            <div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center">
-              <span style="font-size:2rem;opacity:.3">🪟</span>
-            </div>
-            <div class="product-card__body">
-              <h3>Abatible 40</h3>
-              <p>Sistema básico 40mm para aplicaciones estándar residenciales y comerciales.</p>
-              <a href="https://aluminiosfranco.es/productos/abatible-40/" class="product-card__link" target="_blank">Ver producto →</a>
-            </div>
-          </div>
-          <div class="product-card">
-            <div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center">
-              <span style="font-size:2rem;opacity:.3">🚪</span>
-            </div>
-            <div class="product-card__body">
-              <h3>Plegable Basic</h3>
-              <p>Sistema de puertas y ventanas plegables para grandes vanos y terrazas.</p>
-              <a href="https://aluminiosfranco.es/productos/plegable-basic/" class="product-card__link" target="_blank">Ver producto →</a>
-            </div>
-          </div>
-        </div>
-      </section>
+  /* ---- COUNTER ANIMATION ---- */
+  const counters = document.querySelectorAll('[data-count]');
+  if (counters.length) {
+    const countIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseInt(el.dataset.count);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1800;
+        const start = performance.now();
+        const animate = (now) => {
+          const t = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = Math.round(eased * target) + suffix;
+          if (t < 1) requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
+        countIO.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => countIO.observe(el));
+  }
 
-      <!-- SISTEMAS CORREDERAS -->
-      <section id="correderas" class="familia-section">
-        <div class="familia-header">
-          <div class="familia-header-left">
-            <span class="section-label">Arquitectura</span>
-            <h2>Sistemas Correderas</h2>
-            <p>Sistemas de correderas y elevables para grandes vanos con máxima ligereza y hermeticidad.</p>
-          </div>
-          <a href="contacto.html" class="btn btn--outline">Solicitar información →</a>
-        </div>
-        <div class="grid-4 stagger">
-          <div class="product-card"><div class="product-card__badge">RPT</div><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🪟</span></div><div class="product-card__body"><h3>Elevable 120 RPT</h3><p>Sistema elevable de gran formato con RPT para terrazas y fachadas de alto rendimiento.</p><a href="https://aluminiosfranco.es/productos/elevable-120-rpt/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__badge">RPT</div><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🪟</span></div><div class="product-card__body"><h3>Perimetral 100/90 RPT</h3><p>Corredera perimetral de alta gama con puente térmico y perfilería 100/90mm.</p><a href="https://aluminiosfranco.es/productos/perimetral-100-90-rpt/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__badge">RPT</div><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🪟</span></div><div class="product-card__body"><h3>Perimetral 70 RPT</h3><p>Sistema corredera perimetral con RPT, solución compacta de alta eficiencia.</p><a href="https://aluminiosfranco.es/productos/perimetral-70-rpt/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🪟</span></div><div class="product-card__body"><h3>Elevable 100</h3><p>Corredera elevable de gran formato para vanos de hasta 6 metros de ancho.</p><a href="https://aluminiosfranco.es/productos/elevable-100/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🪟</span></div><div class="product-card__body"><h3>Perimetral 70</h3><p>Sistema corredera estándar con herraje perimetral y perfil de 70mm.</p><a href="https://aluminiosfranco.es/productos/perimetral-70/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🪟</span></div><div class="product-card__body"><h3>Corredera 75</h3><p>Sistema de corredera de aluminio de 75mm, solución versátil y económica.</p><a href="https://aluminiosfranco.es/productos/corredera-75/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🪟</span></div><div class="product-card__body"><h3>Euronova 60</h3><p>Corredera clásica Euronova de 60mm para viviendas y locales comerciales.</p><a href="https://aluminiosfranco.es/productos/euronova-60/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🪟</span></div><div class="product-card__body"><h3>Junior 21</h3><p>Sistema corredera económico Junior 21, ideal para aplicaciones ligeras.</p><a href="https://aluminiosfranco.es/productos/junior-21/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-        </div>
-      </section>
+  /* ---- PARALLAX HERO ---- */
+  const heroBg = document.querySelector('.hero__bg');
+  if (heroBg && window.matchMedia('(min-width: 768px)').matches) {
+    window.addEventListener('scroll', () => {
+      heroBg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+    }, { passive: true });
+  }
 
-      <!-- PROTECCIÓN SOLAR -->
-      <section id="proteccion-solar" class="familia-section">
-        <div class="familia-header">
-          <div class="familia-header-left">
-            <span class="section-label">Arquitectura</span>
-            <h2>Sistemas de Protección Solar</h2>
-            <p>Soluciones de sombreamiento y protección solar: mallorquinas, celosías, lamas y pérgolas bioclimáticas.</p>
-          </div>
-          <a href="contacto.html" class="btn btn--outline">Solicitar información →</a>
-        </div>
-        <div class="grid-4 stagger">
-          <div class="product-card"><div class="product-card__img"><img src="https://aluminiosfranco.es/wp-content/uploads/pergola-hotel-dwo-1-1.webp" alt="Pérgola Bioclimática" loading="lazy"></div><div class="product-card__body"><h3>Pérgola Bioclimática Continental</h3><p>Lamas orientables y motorizadas para terrazas y jardines con confort todo el año.</p><a href="https://aluminiosfranco.es/productos/pergola-bioclimatica-continental/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">☀️</span></div><div class="product-card__body"><h3>Mallorquina Abisagrada</h3><p>Contaventana mallorquina abisagrada, protección solar y privacidad con estética clásica.</p><a href="https://aluminiosfranco.es/productos/mallorquina-abisagrada/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">☀️</span></div><div class="product-card__body"><h3>Mallorquina Corredera</h3><p>Sistema de mallorquina corredera para una apertura suave y compacta en fachada.</p><a href="https://aluminiosfranco.es/productos/mallorquina-corredera/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img"><img src="https://aluminiosfranco.es/wp-content/uploads/celosias-de-aluminio-3.webp" alt="Celosías y Lamas" loading="lazy"></div><div class="product-card__body"><h3>Celosías y Lamas</h3><p>Sistemas de celosías y lamas de aluminio para fachadas, protección solar y diseño arquitectónico.</p><a href="https://aluminiosfranco.es/productos/celosias-y-lamas/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-        </div>
-      </section>
+  /* ---- ACTIVE NAV LINK ---- */
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav__link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href !== '#' && currentPage.includes(href.replace('.html', ''))) {
+      link.classList.add('active');
+    }
+  });
 
-      <!-- BARANDILLAS -->
-      <section id="barandillas" class="familia-section">
-        <div class="familia-header">
-          <div class="familia-header-left">
-            <span class="section-label">Arquitectura</span>
-            <h2>Barandillas</h2>
-            <p>Sistemas de barandillas de aluminio para terrazas, escaleras y espacios exteriores.</p>
-          </div>
-          <a href="contacto.html" class="btn btn--outline">Solicitar información →</a>
-        </div>
-        <div class="grid-4 stagger">
-          <div class="product-card"><div class="product-card__img"><img src="https://aluminiosfranco.es/wp-content/uploads/railing-glass-producto-1.webp" alt="Railing Glass" loading="lazy"></div><div class="product-card__body"><h3>Railing Glass</h3><p>Sistema de barandilla con vidrio estructural para máxima transparencia y diseño contemporáneo.</p><a href="https://aluminiosfranco.es/productos/railing-glass/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🏗️</span></div><div class="product-card__body"><h3>Barandillas Tradicionales</h3><p>Sistemas clásicos de barandillas de aluminio extruido para todos los usos.</p><a href="https://aluminiosfranco.es/productos/barandillas-tradicionales/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-        </div>
-      </section>
-
-      <!-- MURO CORTINA -->
-      <section id="muro-cortina" class="familia-section">
-        <div class="familia-header">
-          <div class="familia-header-left">
-            <span class="section-label">Arquitectura</span>
-            <h2>Muro Cortina</h2>
-            <p>Sistemas EMC-60 de muro cortina de aluminio para fachadas de edificios singulares y terciario.</p>
-          </div>
-          <a href="contacto.html" class="btn btn--outline">Solicitar información →</a>
-        </div>
-        <div class="grid-4 stagger">
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🏢</span></div><div class="product-card__body"><h3>EMC-60 TT</h3><p>Muro cortina stick 60mm con travesaño y montante para fachadas convencionales.</p><a href="https://aluminiosfranco.es/productos/emc-60-tt/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🏢</span></div><div class="product-card__body"><h3>EMC-60 VE</h3><p>Sistema de muro cortina con vidrio estructural exterior para fachada limpia.</p><a href="https://aluminiosfranco.es/productos/emc-60-ve/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🏢</span></div><div class="product-card__body"><h3>EMC-60 ED</h3><p>Muro cortina con elementos decorativos integrados para fachadas singulares.</p><a href="https://aluminiosfranco.es/productos/emc-60-ed/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🏢</span></div><div class="product-card__body"><h3>EMC-60 EB / MN / SE</h3><p>Variantes de muro cortina: ebanistería, mainel y semiestructural para cada proyecto.</p><a href="https://aluminiosfranco.es/productos/emc-60-eb/" class="product-card__link" target="_blank">Ver más →</a></div></div>
-        </div>
-      </section>
-
-      <!-- NORMALIZADOS -->
-      <section id="normalizados" class="familia-section">
-        <div class="familia-header">
-          <div class="familia-header-left">
-            <span class="section-label">Arquitectura · Industrial</span>
-            <h2>Normalizados</h2>
-            <p>Perfiles normalizados de aluminio extruido para múltiples aplicaciones constructivas e industriales.</p>
-          </div>
-          <a href="https://afcatalunya.github.io/normalizados/consulta_stock.html" class="btn btn--primary" target="_blank">Consultar stock →</a>
-        </div>
-        <div style="background:var(--c-green-light);border-radius:var(--radius-lg);padding:32px;display:flex;gap:24px;align-items:center;flex-wrap:wrap">
-          <div style="flex:1;min-width:240px">
-            <h3 style="font-size:1.125rem;font-weight:700;color:var(--c-green-deep);margin-bottom:8px">Consulta de stock en tiempo real</h3>
-            <p style="font-size:.875rem;color:var(--c-gray-600)">Accede a nuestra herramienta online para consultar disponibilidad de perfiles normalizados de aluminio.</p>
-          </div>
-          <a href="https://afcatalunya.github.io/normalizados/consulta_stock.html" class="btn btn--primary" target="_blank">Consultar stock de normalizados →</a>
-        </div>
-      </section>
-
-      <!-- PANEL COMPOSITE -->
-      <section id="panel-composite" class="familia-section">
-        <div class="familia-header">
-          <div class="familia-header-left">
-            <span class="section-label">Arquitectura</span>
-            <h2>Panel Composite</h2>
-            <p>Panel de aluminio composite para revestimiento de fachadas y elementos decorativos.</p>
-          </div>
-          <a href="contacto.html" class="btn btn--outline">Solicitar información →</a>
-        </div>
-        <div class="grid-4 stagger">
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🏗️</span></div><div class="product-card__body"><h3>Panel Composite Arquitectura</h3><p>Panel composite de aluminio con núcleo mineral o PE para fachadas ventiladas y revestimientos.</p><a href="https://aluminiosfranco.es/productos/panel-composite-arquitectura/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-        </div>
-      </section>
-
-      <!-- CHAPAS EDIFICACIÓN -->
-      <section id="chapas-edificacion" class="familia-section">
-        <div class="familia-header">
-          <div class="familia-header-left">
-            <span class="section-label">Arquitectura</span>
-            <h2>Chapas para la Edificación</h2>
-            <p>Chapas de aluminio para cubiertas, fachadas y elementos decorativos arquitectónicos.</p>
-          </div>
-          <a href="https://afcatalunya.github.io/consulta-chapas/" class="btn btn--primary" target="_blank">Consultar stock chapas →</a>
-        </div>
-        <div class="grid-4 stagger">
-          <div class="product-card"><div class="product-card__img"><img src="https://aluminiosfranco.es/wp-content/uploads/1.webp" alt="Chapa Deployé" loading="lazy"></div><div class="product-card__body"><h3>Chapa Deployé</h3><p>Aluminio expandido de gran versatilidad para fachadas, celosías y elementos decorativos.</p><a href="https://aluminiosfranco.es/productos/chapa-deploye-aluminio-expandido/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">〰️</span></div><div class="product-card__body"><h3>Chapa Minionda</h3><p>Chapa ondulada de aluminio para cubiertas, fachadas y revestimientos ligeros.</p><a href="https://aluminiosfranco.es/productos/chapa-minionda/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🔲</span></div><div class="product-card__body"><h3>Chapa Trapezoidal</h3><p>Perfil trapezoidal de aluminio para cubiertas industriales y naves de alta resistencia.</p><a href="https://aluminiosfranco.es/productos/chapa-trapezoidal/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">⬛</span></div><div class="product-card__body"><h3>Chapas Perforadas Decorativas</h3><p>Chapas perforadas de aluminio con múltiples patrones para diseño de interiores y fachadas.</p><a href="https://aluminiosfranco.es/productos/chapas-perforadas-decorativas/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">💎</span></div><div class="product-card__body"><h3>Policarbonatos</h3><p>Planchas Lexan Thermoclear de policarbonato alveolar para cubiertas y cerramientos translúcidos.</p><a href="https://aluminiosfranco.es/productos/planchas-lexan-thermoclear/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-        </div>
-      </section>
-
-      <!-- SISTEMAS ADICIONALES -->
-      <section id="sistemas-adicionales" class="familia-section">
-        <div class="familia-header">
-          <div class="familia-header-left">
-            <span class="section-label">Arquitectura</span>
-            <h2>Sistemas Adicionales</h2>
-          </div>
-        </div>
-        <div class="grid-4 stagger">
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🔧</span></div><div class="product-card__body"><h3>Perfiles Complementarios</h3><p>Perfiles y accesorios complementarios para la instalación y acabado de sistemas de carpintería.</p><a href="https://aluminiosfranco.es/productos/perfiles-complementarios/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-          <div class="product-card"><div class="product-card__img" style="background:var(--c-gray-100);display:flex;align-items:center;justify-content:center"><span style="font-size:2rem;opacity:.3">🛡️</span></div><div class="product-card__body"><h3>Mamparas de Protección</h3><p>Sistemas de mamparas y divisiones de aluminio para instalaciones sanitarias y de seguridad.</p><a href="https://aluminiosfranco.es/productos/mamparas-de-proteccion/" class="product-card__link" target="_blank">Ver producto →</a></div></div>
-        </div>
-      </section>
-
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <img src="https://aluminiosfranco.es/wp-content/uploads/LOGO-50-anos-AF-positivo.svg" alt="Aluminios Franco">
-        <p>Fabricantes y distribuidores de aluminio desde 1975.</p>
-      </div>
-      <div class="footer__col">
-        <h4>Servicios</h4>
-        <ul>
-          <li><a href="calidad.html">Certificado de calidad</a></li>
-          <li><a href="bim.html">Gestión BIM</a></li>
-          <li><a href="presupuestos.html">Programa Presupuestos</a></li>
-          <li><a href="oficina-tecnica.html">Oficina Técnica</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h4>Murcia</h4>
-        <ul>
-          <li><a href="tel:+34968243704">968 24 37 04</a></li>
-          <li><a href="mailto:af@aluminiosfranco.es">af@aluminiosfranco.es</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h4>Valencia · Tarragona</h4>
-        <ul>
-          <li><a href="tel:+34961212816">Valencia: 961 21 28 16</a></li>
-          <li><a href="tel:+34977525572">Tarragona: 977 52 55 72</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer__eu">
-      <img src="https://aluminiosfranco.es/wp-content/uploads/ES-Financiado-por-la-Uni¢n-Europea_WHITE-1.webp" alt="">
-      <img src="https://aluminiosfranco.es/wp-content/uploads/Logo-PRTR-tres-lineas_BLANCO-1.webp" alt="">
-    </div>
-    <div class="footer__bottom">
-      <span>© 2025 Aluminios Franco, S.A.</span>
-      <div class="footer__bottom-links">
-        <a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<a href="https://aluminiosfranco.es/50-aniversario/" class="badge-50" target="_blank">
-  <img src="https://alumini
+});
